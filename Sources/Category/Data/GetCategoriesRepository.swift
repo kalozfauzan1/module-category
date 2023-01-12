@@ -8,17 +8,20 @@
 import Core
 import Combine
 
+// 1
 public struct GetCategoriesRepository<
     CategoryLocaleDataSource: LocaleDataSource,
     RemoteDataSource: DataSource,
     Transformer: Mapper>: Repository
 where
+    // 2
     CategoryLocaleDataSource.Response == CategoryEntity,
     RemoteDataSource.Response == [CategoryResponse],
     Transformer.Response == [CategoryResponse],
     Transformer.Entity == [CategoryEntity],
     Transformer.Domain == [CategoryModel] {
   
+    // 3
     public typealias Request = Any
     public typealias Response = [CategoryModel]
     
@@ -36,6 +39,7 @@ where
         _mapper = mapper
     }
     
+    // 4
     public func execute(request: Any?) -> AnyPublisher<[CategoryModel], Error> {
         return _localeDataSource.list(request: nil)
           .flatMap { result -> AnyPublisher<[CategoryModel], Error> in
