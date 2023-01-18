@@ -10,15 +10,6 @@
       }
     },
     {
-      "identity" : "module-core",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kalozfauzan1/module-core.git",
-      "state" : {
-        "branch" : "main",
-        "revision" : "d9359b7b4c80e32488a8d7167508f31bcb9706b1"
-      }
-    },
-    {
       "identity" : "realm-cocoa",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/realm/realm-cocoa.git",
