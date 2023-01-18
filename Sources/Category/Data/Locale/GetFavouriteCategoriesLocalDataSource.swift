@@ -27,7 +27,7 @@ public struct GetFavouriteCategoriesLocaleDataSource: LocaleDataSource {
         return Future<[CategoryEntity], Error> { completion in
             let categories: Results<CategoryEntity> = {
               _realm.objects(CategoryEntity.self)
-                    .filter("isFavourite = \(true)")
+                    .filter("isFavorite = \(true)")
                 .sorted(byKeyPath: "title", ascending: true)
             }()
             completion(.success(categories.toArray(ofType: CategoryEntity.self)))
