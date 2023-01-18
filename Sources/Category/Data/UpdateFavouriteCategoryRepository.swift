@@ -10,12 +10,10 @@ import Combine
 
 public struct UpdateFavouriteCategoryRepository<
     CategoryLocaleDataSource: LocaleDataSource,
-    RemoteDataSource: DataSource,
     Transformer: Mapper>: Repository
 where
     // 2
     CategoryLocaleDataSource.Response == CategoryEntity,
-    RemoteDataSource.Response == CategoryResponse,
     Transformer.Response == CategoryResponse,
     Transformer.Entity == CategoryEntity,
     Transformer.Domain == CategoryModel {
@@ -25,16 +23,13 @@ where
     public typealias Response = CategoryModel
     
     private let _localeDataSource: CategoryLocaleDataSource
-    private let _remoteDataSource: RemoteDataSource
     private let _mapper: Transformer
     
     public init(
         localeDataSource: CategoryLocaleDataSource,
-        remoteDataSource: RemoteDataSource,
         mapper: Transformer) {
         
         _localeDataSource = localeDataSource
-        _remoteDataSource = remoteDataSource
         _mapper = mapper
     }
     
