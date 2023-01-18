@@ -16,7 +16,7 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         .package(name: "Realm", url: "https://github.com/realm/realm-cocoa.git", .branch("master")),
         .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.2.0")),
-        .package(path: "../Core")
+        .package(name: "Core", url: "https://github.com/kalozfauzan1/module-core.git", .branch("main"))
         
     ],
     targets: [
